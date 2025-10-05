@@ -1,0 +1,20 @@
+<main class="hearts-page">
+  <div class="hearts-canvas">
+    @for (h of hearts(); track i; let i = $index) {
+      <button class="heart scatter"
+              [style.width.px]="h.size" [style.height.px]="h.size"
+              [style.left.px]="h.left" [style.top.px]="h.top"
+              aria-label="heart"></button>
+    }
+    <button class="heart center-heart" (click)="openOverlay()" aria-label="main heart"></button>
+  </div>
+
+  @if (showOverlay()) {
+    <div class="overlay" (click)="closeOverlay()">
+      <div class="overlay-content" (click)="$event.stopPropagation()">
+        <img class="pulsing-image" [src]="overlayImageUrl()" alt="Love" />
+        <button class="close" (click)="closeOverlay()" aria-label="close">✕</button>
+      </div>
+    </div>
+  }
+</main>

@@ -1,0 +1,110 @@
+:host, html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* hide scrollbars */
+}
+
+.hearts-page {
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 20% 20%, #fde2e4 0%, #fff 40%),
+              radial-gradient(circle at 80% 80%, #e2f0ff 0%, #fff 40%);
+}
+
+.hearts-canvas {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.heart {
+  position: relative;
+  appearance: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  background-image: url('/serdce.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.heart.scatter {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.heart::before,
+.heart::after {
+  content: none;
+}
+
+.center-heart {
+  width: 140px !important;
+  height: 140px !important;
+  z-index: 2;
+  filter: drop-shadow(0 6px 18px rgba(255,77,109,0.35));
+  animation: throb 1.6s ease-in-out infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes throb {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+}
+
+.overlay-content {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.pulsing-image {
+  width: min(80vw, 520px);
+  max-height: 70vh;
+  object-fit: cover;
+  border-radius: 12px;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  border: none;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .center-heart { width: 110px !important; height: 110px !important; }
+}
