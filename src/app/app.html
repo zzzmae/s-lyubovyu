@@ -13,7 +13,6 @@
     <div class="overlay" (click)="closeOverlay()">
       <div class="overlay-content" (click)="$event.stopPropagation()">
         <img class="pulsing-image" [src]="overlayImageUrl()" alt="Love" />
-        <button class="close" (click)="closeOverlay()" aria-label="close">✕</button>
       </div>
     </div>
   }

@@ -7,13 +7,8 @@ import { Component, effect, signal } from '@angular/core';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('hearts-app');
-
-  // Hearts collection with random positions across the viewport
   protected readonly hearts = signal<Array<{ size: number; left: number; top: number }>>([]);
-  protected readonly gapPx = 40;
 
-  // Overlay with image and music
   protected readonly showOverlay = signal(false);
   protected readonly overlayImageUrl = signal<string>('assets/mini-kama.jpg');
   private audio?: HTMLAudioElement;
