@@ -15,9 +15,9 @@ export class App {
 
   // Overlay with image and music
   protected readonly showOverlay = signal(false);
-  protected readonly overlayImageUrl = signal<string>('mini-kama.jpg');
+  protected readonly overlayImageUrl = signal<string>('assets/mini-kama.jpg');
   private audio?: HTMLAudioElement;
-  private readonly audioUrl = 'tonight-music.mp3';
+  private readonly audioUrl = 'assets/tonight-music.mp3';
 
   constructor() {
     // Generate many hearts of different sizes
